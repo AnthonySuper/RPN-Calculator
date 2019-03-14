@@ -1,17 +1,24 @@
-Explanation: In Reverse Polish Notation (RPN) the operators follow their operands; for instance, to add three and four one would write `3 4 +` rather then `3 + 4`.  If there are multiple orperations, the operator is given immediately after its second operand; so the expression written `3 - 4 + 5` in conventional infix notation would be written `3 4 - 5 +` in RPN: first subtract 4 from 3, then add 5 to that.
+# RPN-Calculator
 
-Example: The infix expression `5 + ((1 + 2) * 4) - 3` can be written down like this in RPN: 5 1 2 + 4 * + 3 -
+This repository provides a reverse-polish-notation calculator.
 
-Instructions: Your calculator should handle:
+## Prerequisites
 
-- At least 4 numbers
+In order to run this program, you need a copy of `ruby`.
+In order to run the tests, you will also need to run the following:
 
-- The four basic arithemetic operations `+, -, *, /`.
+- gem install bundler
+- bundle install
 
-- Use `standard in` and `standard out` to accept and return data. Entering `q` should quit the application.
+## Usage
+
+Run `./example.rb` for an interactive calculator session.
+Input the components of your calculation in reverse-polish notation, one line at a time.
+Valid operators are "+", "-", "\*", and "/".
+
+## Sample session
 
 ```
-Sample:
 1
 2
 +
@@ -25,3 +32,17 @@ Sample:
 q
 goodbye
 ```
+
+## Known Issues
+
+This calculator does not gracefully handle invalid inputs.
+If, for example, you type a session like this:
+
+```
+1
++
+```
+
+Your calculator will properly display an error (as there's nothing to add to `1`), but it will *not* restore the previous state of the calculator afterwards.
+
+
