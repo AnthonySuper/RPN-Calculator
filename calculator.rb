@@ -8,10 +8,10 @@ class Calculator
   # If this token is an operator, it will return the result of
   # the operation. Otherwise, it will return nil.
   def input token
-    if is_number(token)
+    if is_number?(token)
       @stack.push(token.to_f)
       nil
-    elsif is_operator(token)
+    elsif is_operator?(token)
       calc_operator(token)
     else
       raise InvalidTokenError.new(token)
@@ -38,11 +38,11 @@ class Calculator
   end
 
 
-  def is_number token
+  def is_number? token
     Float(token) && true rescue false
   end
 
-  def is_operator token
+  def is_operator? token
     OPERATOR_MAP.keys.include?(token)
   end
 
