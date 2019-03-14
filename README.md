@@ -33,3 +33,7 @@ q
 goodbye
 ```
 
+## Testing
+
+To test the program, run "bundle exec ./tests.rb".
+This will run a basic unit test suite.
