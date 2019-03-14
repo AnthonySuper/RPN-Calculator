@@ -24,6 +24,7 @@ class Calculator
   protected
 
   def calc_operator token
+    raise InvalidTokenError if @stack.length < 2
     arg2 = pop!
     arg1 = pop!
     res = get_operation(token).call(arg1, arg2)

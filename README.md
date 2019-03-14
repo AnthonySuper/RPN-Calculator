@@ -33,16 +33,3 @@ q
 goodbye
 ```
 
-## Known Issues
-
-This calculator does not gracefully handle invalid inputs.
-If, for example, you type a session like this:
-
-```
-1
-+
-```
-
-Your calculator will properly display an error (as there's nothing to add to `1`), but it will *not* restore the previous state of the calculator afterwards.
-
-
