@@ -64,5 +64,15 @@ describe Calculator do
         @calc.input("*")
       end
     end
+
+    it "preserves the stack when we can't do an operation" do
+      begin
+        @calc.input("1")
+        @calc.input("*")
+      rescue ArgumentError
+        @calc.input("2")
+        assert_equal 3, @calc.input("+")
+      end
+    end
   end
 end
