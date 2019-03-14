@@ -23,8 +23,8 @@ class Calculator
   protected
 
   def calc_operator token
-    arg2 = @stack.pop
-    arg1 = @stack.pop
+    arg2 = pop!
+    arg1 = pop!
     res = get_operation(token).call(arg1, arg2)
     @stack.push(res)
     res
@@ -53,4 +53,10 @@ class Calculator
     "/" => lambda {|a, b| a / b},
     "*" => lambda {|a, b| a * b}
   }
+
+  def pop!
+    r = @stack.pop
+    raise ArgumentError if r.nil?
+    r
+  end
 end

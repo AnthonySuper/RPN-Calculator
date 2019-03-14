@@ -40,4 +40,29 @@ describe Calculator do
       assert_equal 2, block_three
     end
   end
+  
+  describe "calculations with 3+ inputs" do
+    it "works with 3 inputs" do
+      @calc.input("5")
+      @calc.input("1")
+      @calc.input("2")
+      assert_equal 3, @calc.input("+")
+      assert_equal 15, @calc.input("*")
+    end
+  end
+
+  describe "error scenarios" do
+    it "raises an argument error on bad input" do
+      assert_raises ArgumentError do
+        @calc.input("Garbage")
+      end
+    end
+
+    it "raises when we can't do an operation" do
+      assert_raises ArgumentError do
+        @calc.input("1")
+        @calc.input("*")
+      end
+    end
+  end
 end
