@@ -10,6 +10,7 @@ class Calculator
   def input token
     if is_number(token)
       @stack.push(token.to_f)
+      nil
     elsif is_operator(token)
       calc_operator(token)
     else
